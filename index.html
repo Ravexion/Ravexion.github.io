@@ -1,93 +1,181 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <title>Five Nights at Freddy's</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Five Nights at Freddy's</title>
 
-        .container {
-            background: #222;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
-            max-width: 700px;
-            width: 90%;
-            text-align: center;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(180deg, #0f0f0f, #1b0000);
+    color: white;
+    scroll-behavior: smooth;
+}
 
-        h1 {
-            cursor: pointer;
-            font-size: 2.5em;
-            color: #ff3c3c;
-            transition: 0.3s;
-        }
+section {
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-        h1:hover {
-            color: #ff0000;
-            text-shadow: 0 0 15px red;
-        }
+.container {
+    max-width: 800px;
+    text-align: center;
+}
 
-        .content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.6s ease, opacity 0.6s ease;
-            opacity: 0;
-            margin-top: 20px;
-        }
+h1 {
+    font-size: 3em;
+    color: #ff3c3c;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        .content.open {
-            max-height: 500px;
-            opacity: 1;
-        }
+h1:hover {
+    text-shadow: 0 0 20px red;
+}
 
-        p {
-            line-height: 1.6;
-        }
+.hidden {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.6s ease;
+}
 
-        .footer {
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #aaa;
-        }
-    </style>
+.hidden.open {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #ff5050;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #220000;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+li:hover {
+    background: #400000;
+    transform: scale(1.05);
+}
+
+.fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: #aaa;
+}
+</style>
 </head>
+
 <body>
 
+<!-- SEKCJA 1 -->
+<section>
 <div class="container">
-    <h1 onclick="toggleContent()">Five Nights at Freddy's</h1>
+<h1 onclick="toggleIntro()">Five Nights at Freddy's</h1>
 
-    <div id="hiddenContent" class="content">
-        <p>
-            Five Nights at Freddy's (FNaF) to seria horrorów, w której wcielasz się w nocnego ochroniarza
-            pracującego w restauracji pełnej animatroników. W ciągu nocy musisz monitorować kamery,
-            zarządzać energią i przetrwać do godziny 6:00.
-        </p>
-        <p>
-            Gra słynie z mrocznej atmosfery, jumpscare'ów oraz rozbudowanej i tajemniczej fabuły,
-            którą gracze odkrywają poprzez ukryte wskazówki i teorie.
-        </p>
-    </div>
+<div id="introText" class="hidden">
+<p>
+Five Nights at Freddy's (FNaF) to seria horrorów stworzona przez Scott Cawthon.
+Gracz wciela się w nocnego ochroniarza pracującego w restauracji pełnej animatroników.
+Twoim celem jest przetrwać od północy do 6:00 rano.
+</p>
+<p>
+Gra słynie z jumpscare'ów, tajemniczej fabuły i ukrytych sekretów.
+</p>
+</div>
 
-    <div class="footer">
-        Kliknij w tytuł, aby rozwinąć opis 👆
-    </div>
+<p style="margin-top:40px; opacity:0.7;">⬇ Zescrolluj w dół ⬇</p>
+</div>
+</section>
+
+<!-- SEKCJA 2 -->
+<section>
+<div class="container fade">
+<h2>🤖 Główne animatroniki</h2>
+<ul>
+<li>Freddy Fazbear</li>
+<li>Bonnie</li>
+<li>Chica</li>
+<li>Foxy</li>
+<li>Golden Freddy</li>
+<li>Springtrap</li>
+<li>Circus Baby</li>
+</ul>
+</div>
+</section>
+
+<!-- SEKCJA 3 -->
+<section>
+<div class="container fade">
+<h2>🎮 Główne części gry</h2>
+<ul>
+<li>Five Nights at Freddy's (2014)</li>
+<li>Five Nights at Freddy's 2 (2014)</li>
+<li>Five Nights at Freddy's 3 (2015)</li>
+<li>Five Nights at Freddy's 4 (2015)</li>
+<li>Five Nights at Freddy's: Sister Location (2016)</li>
+<li>Freddy Fazbear's Pizzeria Simulator (2017)</li>
+<li>Five Nights at Freddy's: Security Breach (2021)</li>
+</ul>
+</div>
+</section>
+
+<div class="footer">
+Strona fanowska FNaF 👻
 </div>
 
 <script>
-    function toggleContent() {
-        const content = document.getElementById("hiddenContent");
-        content.classList.toggle("open");
-    }
+function toggleIntro() {
+    document.getElementById("introText").classList.toggle("open");
+}
+
+// animacja pojawiania się przy scrollu
+const faders = document.querySelectorAll('.fade');
+
+const appearOptions = {
+    threshold: 0.3
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+    });
+}, appearOptions);
+
+faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+});
 </script>
 
 </body>
