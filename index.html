@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Five Nights at Freddy's - Kompletny Fan Page</title>
+<title>Five Nights at Freddy's</title>
 
 <style>
 body {
@@ -85,19 +85,30 @@ section { min-height: 100vh; padding: 80px 20px; display: flex; justify-content:
 
 .game { background: #111; margin: 15px 0; padding: 15px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
 .game:hover { background: #220000; }
-.animatronics { max-height: 0; overflow: hidden; transition: 0.5s ease; }
-.animatronics.open { max-height: 600px; margin-top: 10px; }
-.animatronics li { list-style: none; padding: 8px; background: #000; margin: 5px 0; border-radius: 5px; }
+
+/* === NOWE: scroll lista animatroników === */
+.animatronics {
+    max-height: 300px; /* wysokość okna przewijania */
+    overflow-y: auto; /* przewijanie pionowe */
+    transition: 0.5s ease;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #330000;
+    border-radius: 5px;
+}
+
+.animatronics li {
+    list-style: none;
+    padding: 8px;
+    background: #000;
+    margin: 5px 0;
+    border-radius: 5px;
+}
 </style>
 </head>
 <body>
 
 <div class="noise"></div>
-
-<!-- DŹWIĘK W TLE -->
-<audio autoplay loop>
-    <source src="fnaf1-ambience.mp3" type="audio/mpeg">
-</audio>
 
 <section>
 <div class="container">
@@ -115,61 +126,16 @@ section { min-height: 100vh; padding: 80px 20px; display: flex; justify-content:
 <div class="container">
 <h2 class="glitch" data-text="Części FNaF">Części FNaF</h2>
 
-<!-- FNaF 1 -->
-<div class="game" onclick="toggleGame(this)">FNaF 1
-<ul class="animatronics">
-<li>Freddy Fazbear</li><li>Bonnie</li><li>Chica</li><li>Foxy</li><li>Golden Freddy</li>
-</ul></div>
-
-<!-- FNaF 2 -->
-<div class="game" onclick="toggleGame(this)">FNaF 2
-<ul class="animatronics">
-<li>Toy Freddy</li><li>Toy Bonnie</li><li>Toy Chica</li><li>Mangle</li><li>The Puppet</li><li>Withered Freddy</li><li>Withered Bonnie</li><li>Withered Chica</li><li>Withered Foxy</li>
-</ul></div>
-
-<!-- FNaF 3 -->
-<div class="game" onclick="toggleGame(this)">FNaF 3
-<ul class="animatronics">
-<li>Springtrap</li><li>Phantom Freddy</li><li>Phantom Bonnie</li><li>Phantom Chica</li><li>Phantom Foxy</li><li>Phantom Mangle</li>
-</ul></div>
-
-<!-- FNaF 4 -->
-<div class="game" onclick="toggleGame(this)">FNaF 4
-<ul class="animatronics">
-<li>Nightmare Freddy</li><li>Nightmare Bonnie</li><li>Nightmare Chica</li><li>Nightmare Foxy</li><li>Nightmare Fredbear</li><li>Nightmare</li><li>Plushtrap</li>
-</ul></div>
-
-<!-- Sister Location -->
-<div class="game" onclick="toggleGame(this)">Sister Location
-<ul class="animatronics">
-<li>Circus Baby</li><li>Ballora</li><li>Funtime Freddy</li><li>Funtime Foxy</li><li>Ennard</li>
-</ul></div>
-
-<!-- Pizzeria Simulator -->
-<div class="game" onclick="toggleGame(this)">Pizzeria Simulator
-<ul class="animatronics">
-<li>Scrap Baby</li><li>Molten Freddy</li><li>Scraptrap</li><li>Lefty</li>
-</ul></div>
-
-<!-- Help Wanted -->
-<div class="game" onclick="toggleGame(this)">Help Wanted
-<ul class="animatronics">
-<li>Glitchtrap</li><li>Dreadbear</li><li>Plushbaby</li>
-</ul></div>
-
-<!-- Security Breach -->
-<div class="game" onclick="toggleGame(this)">Security Breach
-<ul class="animatronics">
-<li>Glamrock Freddy</li><li>Glamrock Chica</li><li>Montgomery Gator</li><li>Roxanne Wolf</li><li>Burntrap</li>
-</ul></div>
-
-<!-- Ultimate Custom Night -->
+<!-- Przykład gry -->
 <div class="game" onclick="toggleGame(this)">Ultimate Custom Night
 <ul class="animatronics">
-<li>Freddy Fazbear</li><li>Bonnie</li><li>Chica</li><li>Foxy</li><li>Golden Freddy</li><li>Withered Freddy</li><li>Withered Bonnie</li><li>Withered Chica</li><li>Withered Foxy</li>
-<li>Toy Freddy</li><li>Toy Bonnie</li><li>Toy Chica</li><li>Mangle</li><li>The Puppet</li><li>Springtrap</li><li>Nightmare Freddy</li><li>Nightmare Bonnie</li><li>Nightmare Chica</li>
-<li>Nightmare Foxy</li><li>Nightmare Fredbear</li><li>Nightmare</li><li>Plushtrap</li><li>Circus Baby</li><li>Ballora</li><li>Funtime Freddy</li>
-<li>Funtime Foxy</li><li>Ennard</li><li>Scrap Baby</li><li>Molten Freddy</li><li>Scraptrap</li><li>Lefty</li><li>Glitchtrap</li><li>Dreadbear</li><li>Plushbaby</li>
+<li>Freddy Fazbear</li><li>Bonnie</li><li>Chica</li><li>Foxy</li><li>Golden Freddy</li>
+<li>Withered Freddy</li><li>Withered Bonnie</li><li>Withered Chica</li><li>Withered Foxy</li>
+<li>Toy Freddy</li><li>Toy Bonnie</li><li>Toy Chica</li><li>Mangle</li><li>The Puppet</li>
+<li>Springtrap</li><li>Nightmare Freddy</li><li>Nightmare Bonnie</li><li>Nightmare Chica</li><li>Nightmare Foxy</li>
+<li>Nightmare Fredbear</li><li>Nightmare</li><li>Plushtrap</li><li>Circus Baby</li><li>Ballora</li>
+<li>Funtime Freddy</li><li>Funtime Foxy</li><li>Ennard</li><li>Scrap Baby</li><li>Molten Freddy</li>
+<li>Scraptrap</li><li>Lefty</li><li>Glitchtrap</li><li>Dreadbear</li><li>Plushbaby</li>
 <li>Glamrock Freddy</li><li>Glamrock Chica</li><li>Montgomery Gator</li><li>Roxanne Wolf</li><li>Burntrap</li>
 </ul></div>
 
