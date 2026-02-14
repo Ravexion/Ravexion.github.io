@@ -1,14 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
-    <title>Moja Strona</title>
+    <meta charset="UTF-8">
+    <title>Five Nights at Freddy's</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #222;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+            max-width: 700px;
+            width: 90%;
+            text-align: center;
+        }
+
+        h1 {
+            cursor: pointer;
+            font-size: 2.5em;
+            color: #ff3c3c;
+            transition: 0.3s;
+        }
+
+        h1:hover {
+            color: #ff0000;
+            text-shadow: 0 0 15px red;
+        }
+
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease, opacity 0.6s ease;
+            opacity: 0;
+            margin-top: 20px;
+        }
+
+        .content.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+    </style>
 </head>
 <body>
-    <h1>FNaF - co to jest?</h1>
-    <p><strong>FNaF to skrót od Five Nights at Freddy's</strong> – popularnej serii gier horror stworzonych przez Scott Cawthon.</p>
 
-    <h3>Na czym to polega?</h3>
-    <p>W większości częściach owej gry, wcielasz się w Nocnego Stróża, który musi przetrwać do 6am. Podczas gry, trzeba odpierać od siebie
-    animatroniki.</p>
+<div class="container">
+    <h1 onclick="toggleContent()">Five Nights at Freddy's</h1>
+
+    <div id="hiddenContent" class="content">
+        <p>
+            Five Nights at Freddy's (FNaF) to seria horrorów, w której wcielasz się w nocnego ochroniarza
+            pracującego w restauracji pełnej animatroników. W ciągu nocy musisz monitorować kamery,
+            zarządzać energią i przetrwać do godziny 6:00.
+        </p>
+        <p>
+            Gra słynie z mrocznej atmosfery, jumpscare'ów oraz rozbudowanej i tajemniczej fabuły,
+            którą gracze odkrywają poprzez ukryte wskazówki i teorie.
+        </p>
+    </div>
+
+    <div class="footer">
+        Kliknij w tytuł, aby rozwinąć opis 👆
+    </div>
+</div>
+
+<script>
+    function toggleContent() {
+        const content = document.getElementById("hiddenContent");
+        content.classList.toggle("open");
+    }
+</script>
+
 </body>
 </html>
