@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Five Nights at Freddy's</title>
+<title>Five Nights at Freddy's - Kompletny Fan Page</title>
 
 <style>
 body {
@@ -14,14 +14,12 @@ body {
     overflow-x: hidden;
 }
 
-/* === TŁO CCTV (mrówki + linie) === */
+/* === TŁO CCTV === */
 body::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background-image: repeating-linear-gradient(
         rgba(255,255,255,0.03) 0px,
         rgba(255,255,255,0.03) 1px,
@@ -46,21 +44,6 @@ body::before {
     pointer-events: none;
 }
 
-/* === SEKCJE === */
-section {
-    min-height: 100vh;
-    padding: 80px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container {
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
-}
-
 /* === GLITCH EFFECT === */
 .glitch {
     position: relative;
@@ -78,15 +61,8 @@ section {
     overflow: hidden;
 }
 
-.glitch::before {
-    color: red;
-    animation: glitchTop 2s infinite linear alternate-reverse;
-}
-
-.glitch::after {
-    color: cyan;
-    animation: glitchBottom 2s infinite linear alternate-reverse;
-}
+.glitch::before { color: red; animation: glitchTop 2s infinite linear alternate-reverse; }
+.glitch::after { color: cyan; animation: glitchBottom 2s infinite linear alternate-reverse; }
 
 @keyframes glitchTop {
     0% { clip-path: inset(0 0 80% 0); transform: translate(-2px, -2px); }
@@ -100,53 +76,20 @@ section {
     100% { clip-path: inset(60% 0 0 0); transform: translate(1px, -1px); }
 }
 
-.hidden {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: 0.6s ease;
-}
+/* === SEKCJE === */
+section { min-height: 100vh; padding: 80px 20px; display: flex; justify-content: center; align-items: center; }
+.container { max-width: 800px; width: 100%; text-align: center; }
 
-.hidden.open {
-    max-height: 500px;
-    opacity: 1;
-    margin-top: 20px;
-}
+.hidden { max-height: 0; overflow: hidden; opacity: 0; transition: 0.6s ease; }
+.hidden.open { max-height: 600px; opacity: 1; margin-top: 20px; }
 
-.game {
-    background: #111;
-    margin: 15px 0;
-    padding: 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.game:hover {
-    background: #220000;
-}
-
-.animatronics {
-    max-height: 0;
-    overflow: hidden;
-    transition: 0.5s ease;
-}
-
-.animatronics.open {
-    max-height: 400px;
-    margin-top: 10px;
-}
-
-.animatronics li {
-    list-style: none;
-    padding: 8px;
-    background: #000;
-    margin: 5px 0;
-    border-radius: 5px;
-}
+.game { background: #111; margin: 15px 0; padding: 15px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+.game:hover { background: #220000; }
+.animatronics { max-height: 0; overflow: hidden; transition: 0.5s ease; }
+.animatronics.open { max-height: 600px; margin-top: 10px; }
+.animatronics li { list-style: none; padding: 8px; background: #000; margin: 5px 0; border-radius: 5px; }
 </style>
 </head>
-
 <body>
 
 <div class="noise"></div>
@@ -158,91 +101,77 @@ section {
 
 <section>
 <div class="container">
-<h1 class="glitch" data-text="Five Nights at Freddy's" onclick="toggleIntro()">
-Five Nights at Freddy's
-</h1>
+<h1 class="glitch" data-text="Five Nights at Freddy's" onclick="toggleIntro()">Five Nights at Freddy's</h1>
 <p style="opacity:0.6;">Kliknij tytuł, aby rozwinąć opis 👆</p>
 
 <div id="introText" class="hidden">
-<p>
-Seria horrorów, w której wcielasz się w nocnego ochroniarza.
-Przetrwaj od 00:00 do 6:00 monitorując kamery...
-</p>
+<p>Seria horrorów, w której wcielasz się w nocnego ochroniarza. Przetrwaj od 00:00 do 6:00 monitorując kamery.</p>
 </div>
-
-<p style="margin-top:40px; opacity:0.5;">⬇ Scroll down ⬇</p>
+<p style="margin-top:40px; opacity:0.5;">⬇ Scroll w dół ⬇</p>
 </div>
 </section>
 
 <section>
 <div class="container">
+<h2 class="glitch" data-text="Części FNaF">Części FNaF</h2>
 
-<h2 class="glitch" data-text="Części FNaF">
-Części FNaF
-</h2>
-
-<div class="game" onclick="toggleGame(this)">
-Five Nights at Freddy's (2014)
+<!-- FNaF 1 -->
+<div class="game" onclick="toggleGame(this)">FNaF 1
 <ul class="animatronics">
-<li>Freddy</li><li>Bonnie</li><li>Chica</li><li>Foxy</li>
-</ul>
-</div>
+<li>Freddy Fazbear</li><li>Bonnie</li><li>Chica</li><li>Foxy</li><li>Golden Freddy</li>
+</ul></div>
 
-<div class="game" onclick="toggleGame(this)">
-FNaF 2
+<!-- FNaF 2 -->
+<div class="game" onclick="toggleGame(this)">FNaF 2
 <ul class="animatronics">
-<li>Toy Freddy</li><li>Mangle</li><li>Puppet</li>
-</ul>
-</div>
+<li>Toy Freddy</li><li>Toy Bonnie</li><li>Toy Chica</li><li>Mangle</li><li>The Puppet</li><li>Withered Freddy</li><li>Withered Bonnie</li><li>Withered Chica</li><li>Withered Foxy</li>
+</ul></div>
 
-<div class="game" onclick="toggleGame(this)">
-FNaF 3
+<!-- FNaF 3 -->
+<div class="game" onclick="toggleGame(this)">FNaF 3
 <ul class="animatronics">
-<li>Springtrap</li><li>Phantom Freddy</li>
-</ul>
-</div>
+<li>Springtrap</li><li>Phantom Freddy</li><li>Phantom Bonnie</li><li>Phantom Chica</li><li>Phantom Foxy</li><li>Phantom Mangle</li>
+</ul></div>
 
-<div class="game" onclick="toggleGame(this)">
-FNaF 4
+<!-- FNaF 4 -->
+<div class="game" onclick="toggleGame(this)">FNaF 4
 <ul class="animatronics">
-<li>Nightmare Freddy</li><li>Nightmare Fredbear</li>
-</ul>
-</div>
+<li>Nightmare Freddy</li><li>Nightmare Bonnie</li><li>Nightmare Chica</li><li>Nightmare Foxy</li><li>Nightmare Fredbear</li><li>Nightmare</li><li>Plushtrap</li>
+</ul></div>
 
-<div class="game" onclick="toggleGame(this)">
-Sister Location
+<!-- Sister Location -->
+<div class="game" onclick="toggleGame(this)">Sister Location
 <ul class="animatronics">
-<li>Circus Baby</li><li>Funtime Freddy</li><li>Ennard</li>
-</ul>
-</div>
+<li>Circus Baby</li><li>Ballora</li><li>Funtime Freddy</li><li>Funtime Foxy</li><li>Ennard</li>
+</ul></div>
 
-<div class="game" onclick="toggleGame(this)">
-Pizzeria Simulator
+<!-- Pizzeria Simulator -->
+<div class="game" onclick="toggleGame(this)">Pizzeria Simulator
 <ul class="animatronics">
-<li>Scrap Baby</li><li>Molten Freddy</li>
-</ul>
-</div>
+<li>Scrap Baby</li><li>Molten Freddy</li><li>Scraptrap</li><li>Lefty</li>
+</ul></div>
 
-<div class="game" onclick="toggleGame(this)">
-Help Wanted
+<!-- Help Wanted -->
+<div class="game" onclick="toggleGame(this)">Help Wanted
 <ul class="animatronics">
-<li>Glitchtrap</li><li>Dreadbear</li>
-</ul>
-</div>
+<li>Glitchtrap</li><li>Dreadbear</li><li>Plushbaby</li>
+</ul></div>
 
-<div class="game" onclick="toggleGame(this)">
-Security Breach
+<!-- Security Breach -->
+<div class="game" onclick="toggleGame(this)">Security Breach
 <ul class="animatronics">
-<li>Glamrock Freddy</li><li>Burntrap</li>
-</ul>
-</div>
+<li>Glamrock Freddy</li><li>Glamrock Chica</li><li>Montgomery Gator</li><li>Roxanne Wolf</li><li>Burntrap</li>
+</ul></div>
 
-<div class="game" onclick="toggleGame(this)">
-Ultimate Custom Night
+<!-- Ultimate Custom Night -->
+<div class="game" onclick="toggleGame(this)">Ultimate Custom Night
 <ul class="animatronics">
-<li>Golden Freddy</li><li>Nightmare</li><li>Rockstar Freddy</li><li>Lefty</li>
-</ul>
-</div>
+<li>Freddy Fazbear</li><li>Bonnie</li><li>Chica</li><li>Foxy</li><li>Golden Freddy</li><li>Withered Freddy</li><li>Withered Bonnie</li><li>Withered Chica</li><li>Withered Foxy</li>
+<li>Toy Freddy</li><li>Toy Bonnie</li><li>Toy Chica</li><li>Mangle</li><li>The Puppet</li><li>Springtrap</li><li>Nightmare Freddy</li><li>Nightmare Bonnie</li><li>Nightmare Chica</li>
+<li>Nightmare Foxy</li><li>Nightmare Fredbear</li><li>Nightmare</li><li>Plushtrap</li><li>Circus Baby</li><li>Ballora</li><li>Funtime Freddy</li>
+<li>Funtime Foxy</li><li>Ennard</li><li>Scrap Baby</li><li>Molten Freddy</li><li>Scraptrap</li><li>Lefty</li><li>Glitchtrap</li><li>Dreadbear</li><li>Plushbaby</li>
+<li>Glamrock Freddy</li><li>Glamrock Chica</li><li>Montgomery Gator</li><li>Roxanne Wolf</li><li>Burntrap</li>
+</ul></div>
 
 </div>
 </section>
@@ -255,15 +184,11 @@ function toggleIntro() {
 function toggleGame(element) {
     const allLists = document.querySelectorAll(".animatronics");
     allLists.forEach(list => {
-        if (list !== element.querySelector(".animatronics")) {
-            list.classList.remove("open");
-        }
+        if(list !== element.querySelector(".animatronics")) list.classList.remove("open");
     });
-
     const list = element.querySelector(".animatronics");
     list.classList.toggle("open");
 }
 </script>
-
 </body>
 </html>
