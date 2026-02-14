@@ -6,51 +6,6 @@ body {
     overflow-x: hidden;
 }
 
-/* === Przycisk jumpscare === */
-#jumpscareBtn {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    padding: 12px 20px;
-    background: #ff0000;
-    color: #fff;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* === Obraz jumpscare === */
-#jumpscare {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    z-index: 999;
-    max-width: 400px;
-    pointer-events: none;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    opacity: 0;
-}
-
-/* Animacja pojawienia się */
-#jumpscare.show {
-    transform: translate(-50%, -50%) scale(1.5);
-    opacity: 1;
-    animation: shake 0.3s infinite;
-}
-
-/* Drganie jak w jumpscare */
-@keyframes shake {
-    0% { transform: translate(-50%, -50%) rotate(0deg) scale(1.5);}
-    25% { transform: translate(-50%, -50%) rotate(5deg) scale(1.5);}
-    50% { transform: translate(-50%, -50%) rotate(-5deg) scale(1.5);}
-    75% { transform: translate(-50%, -50%) rotate(5deg) scale(1.5);}
-    100% { transform: translate(-50%, -50%) rotate(0deg) scale(1.5);}
-}
-
 /* === TŁO CCTV === */
 body::before {
     content: "";
