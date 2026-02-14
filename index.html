@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Five Nights at Freddy's</title>
+<title>FNaF Glitch Text</title>
 
 <style>
 body {
@@ -35,49 +35,56 @@ body::before {
     to { background-position: 0 100px; }
 }
 
-.noise {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
-    opacity: 0.05;
-    pointer-events: none;
-}
-
-/* === GLITCH EFFECT === */
-.glitch {
+/* === GLITCH EFFECT (na wzór obrazka) === */
+.glitch-text {
     position: relative;
-    color: #ff3c3c;
-    font-size: 2.5em;
-    cursor: pointer;
+    font-size: 3em;
+    font-weight: bold;
+    color: #fff;
+    display: inline-block;
+    text-transform: uppercase;
 }
 
-.glitch::before,
-.glitch::after {
+.glitch-text::before,
+.glitch-text::after {
     content: attr(data-text);
     position: absolute;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
 }
 
-.glitch::before { color: red; animation: glitchTop 2s infinite linear alternate-reverse; }
-.glitch::after { color: cyan; animation: glitchBottom 2s infinite linear alternate-reverse; }
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    clip: rect(2px, 9999px, 20px, 0);
+    animation: glitchTop 2s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    left: -2px;
+    text-shadow: -2px 0 cyan;
+    clip: rect(25px, 9999px, 45px, 0);
+    animation: glitchBottom 2s infinite linear alternate-reverse;
+}
 
 @keyframes glitchTop {
-    0% { clip-path: inset(0 0 80% 0); transform: translate(-2px, -2px); }
-    50% { clip-path: inset(0 0 40% 0); transform: translate(2px, 2px); }
-    100% { clip-path: inset(0 0 60% 0); transform: translate(-1px, 1px); }
+    0% { transform: translate(0,0); clip: rect(2px,9999px,20px,0); }
+    25% { transform: translate(-2px,-2px); clip: rect(5px,9999px,25px,0); }
+    50% { transform: translate(2px,-1px); clip: rect(10px,9999px,30px,0); }
+    75% { transform: translate(-1px,2px); clip: rect(0px,9999px,15px,0); }
+    100% { transform: translate(0,0); clip: rect(2px,9999px,20px,0); }
 }
 
 @keyframes glitchBottom {
-    0% { clip-path: inset(80% 0 0 0); transform: translate(2px, 2px); }
-    50% { clip-path: inset(40% 0 0 0); transform: translate(-2px, -2px); }
-    100% { clip-path: inset(60% 0 0 0); transform: translate(1px, -1px); }
+    0% { transform: translate(0,0); clip: rect(25px,9999px,45px,0); }
+    25% { transform: translate(1px,1px); clip: rect(30px,9999px,50px,0); }
+    50% { transform: translate(-1px,2px); clip: rect(35px,9999px,55px,0); }
+    75% { transform: translate(2px,-1px); clip: rect(28px,9999px,48px,0); }
+    100% { transform: translate(0,0); clip: rect(25px,9999px,45px,0); }
 }
 
 /* === SEKCJE === */
-section { min-height: 100vh; padding: 80px 20px; display: flex; justify-content: center; align-items: center; }
+section { min-height: 100vh; padding: 80px 20px; display: flex; justify-content: center; align-items: center; flex-direction: column; }
 .container { max-width: 800px; width: 100%; text-align: center; }
 
 .hidden { max-height: 0; overflow: hidden; opacity: 0; transition: 0.6s ease; }
@@ -86,10 +93,9 @@ section { min-height: 100vh; padding: 80px 20px; display: flex; justify-content:
 .game { background: #111; margin: 15px 0; padding: 15px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
 .game:hover { background: #220000; }
 
-/* === NOWE: scroll lista animatroników === */
 .animatronics {
-    max-height: 300px; /* wysokość okna przewijania */
-    overflow-y: auto; /* przewijanie pionowe */
+    max-height: 300px;
+    overflow-y: auto;
     transition: 0.5s ease;
     margin-top: 10px;
     padding: 5px;
@@ -110,9 +116,13 @@ section { min-height: 100vh; padding: 80px 20px; display: flex; justify-content:
 
 <div class="noise"></div>
 
+<audio autoplay loop>
+    <source src="fnaf1-ambience.mp3" type="audio/mpeg">
+</audio>
+
 <section>
 <div class="container">
-<h1 class="glitch" data-text="Five Nights at Freddy's" onclick="toggleIntro()">Five Nights at Freddy's</h1>
+<h1 class="glitch-text" data-text="Five Nights at Freddy's" onclick="toggleIntro()">Five Nights at Freddy's</h1>
 <p style="opacity:0.6;">Kliknij tytuł, aby rozwinąć opis 👆</p>
 
 <div id="introText" class="hidden">
@@ -124,9 +134,60 @@ section { min-height: 100vh; padding: 80px 20px; display: flex; justify-content:
 
 <section>
 <div class="container">
-<h2 class="glitch" data-text="Części FNaF">Części FNaF</h2>
+<h2 class="glitch-text" data-text="Części FNaF">Części FNaF</h2>
 
-<!-- Przykład gry -->
+<!-- FNaF 1 -->
+<div class="game" onclick="toggleGame(this)">FNaF 1
+<ul class="animatronics">
+<li>Freddy Fazbear</li><li>Bonnie</li><li>Chica</li><li>Foxy</li><li>Golden Freddy</li>
+</ul></div>
+
+<!-- FNaF 2 -->
+<div class="game" onclick="toggleGame(this)">FNaF 2
+<ul class="animatronics">
+<li>Toy Freddy</li><li>Toy Bonnie</li><li>Toy Chica</li><li>Mangle</li><li>The Puppet</li>
+<li>Withered Freddy</li><li>Withered Bonnie</li><li>Withered Chica</li><li>Withered Foxy</li>
+</ul></div>
+
+<!-- FNaF 3 -->
+<div class="game" onclick="toggleGame(this)">FNaF 3
+<ul class="animatronics">
+<li>Springtrap</li><li>Phantom Freddy</li><li>Phantom Bonnie</li><li>Phantom Chica</li>
+<li>Phantom Foxy</li><li>Phantom Mangle</li>
+</ul></div>
+
+<!-- FNaF 4 -->
+<div class="game" onclick="toggleGame(this)">FNaF 4
+<ul class="animatronics">
+<li>Nightmare Freddy</li><li>Nightmare Bonnie</li><li>Nightmare Chica</li>
+<li>Nightmare Foxy</li><li>Nightmare Fredbear</li><li>Nightmare</li><li>Plushtrap</li>
+</ul></div>
+
+<!-- Sister Location -->
+<div class="game" onclick="toggleGame(this)">Sister Location
+<ul class="animatronics">
+<li>Circus Baby</li><li>Ballora</li><li>Funtime Freddy</li><li>Funtime Foxy</li><li>Ennard</li>
+</ul></div>
+
+<!-- Pizzeria Simulator -->
+<div class="game" onclick="toggleGame(this)">Pizzeria Simulator
+<ul class="animatronics">
+<li>Scrap Baby</li><li>Molten Freddy</li><li>Scraptrap</li><li>Lefty</li>
+</ul></div>
+
+<!-- Help Wanted -->
+<div class="game" onclick="toggleGame(this)">Help Wanted
+<ul class="animatronics">
+<li>Glitchtrap</li><li>Dreadbear</li><li>Plushbaby</li>
+</ul></div>
+
+<!-- Security Breach -->
+<div class="game" onclick="toggleGame(this)">Security Breach
+<ul class="animatronics">
+<li>Glamrock Freddy</li><li>Glamrock Chica</li><li>Montgomery Gator</li><li>Roxanne Wolf</li><li>Burntrap</li>
+</ul></div>
+
+<!-- Ultimate Custom Night -->
 <div class="game" onclick="toggleGame(this)">Ultimate Custom Night
 <ul class="animatronics">
 <li>Freddy Fazbear</li><li>Bonnie</li><li>Chica</li><li>Foxy</li><li>Golden Freddy</li>
